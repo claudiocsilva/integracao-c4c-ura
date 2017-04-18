@@ -33,6 +33,7 @@ public class WebServiceConfiguration {
 	public CustomerOrderProcessingManageCustomerOrderIn CustomerService() {
 		return new CustomerOrderProcessingEndPoint();
 	}
+	
 
 	@Bean
 	public Endpoint endpoint() {

@@ -4,6 +4,7 @@ import com.sap.xi.a1s.global.CustomerOrderMaintainConfirmationBundleMessageSyncV
 import com.sap.xi.a1s.global.CustomerOrderMaintainRequestBundleMessageSyncV1;
 import com.sap.xi.a1s.global.CustomerOrderProcessingManageCustomerOrderIn;
 import com.sap.xi.a1s.global.StandardFaultMessage;
+import com.sap.xi.sapglobal20.global.ObjectFactory;
 
 public class CustomerOrderProcessingEndPoint implements CustomerOrderProcessingManageCustomerOrderIn {
 
@@ -19,7 +20,10 @@ public class CustomerOrderProcessingEndPoint implements CustomerOrderProcessingM
 	public CustomerOrderMaintainConfirmationBundleMessageSyncV1 maintainBundle(
 			CustomerOrderMaintainRequestBundleMessageSyncV1 customerOrderBundleMaintainRequestSyncV1)
 			throws StandardFaultMessage {
-		// TODO Auto-generated method stub
+		ObjectFactory factory = new ObjectFactory();
+		CustomerOrderMaintainRequestBundleMessageSyncV1 c = new CustomerOrderMaintainRequestBundleMessageSyncV1();
+		factory.createCustomerOrderBundleMaintainRequestSyncV1(customerOrderBundleMaintainRequestSyncV1);
+		c.getCustomerOrder();
 		return null;
 	}
 
