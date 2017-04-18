@@ -4,6 +4,7 @@ import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.frontend.ClientProxy;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.cxf.transport.http.HTTPConduit;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.sap.xi.a1s.global.CustomerOrderMaintainConfirmationBundleMessageSyncV1;
@@ -14,6 +15,18 @@ import com.sap.xi.a1s.global.StandardFaultMessage;
 @Service
 public class CustomerOrderProcessingEndPoint implements CustomerOrderProcessingManageCustomerOrderIn {
 
+	
+	@Value("${c4c.manage.endpoint}")
+	private String MaintainBundleEndPoint;
+	
+	@Value("${c4c.manage.login}")
+	private String userAuthentication;
+	
+	@Value("${c4c.manage.password}")
+	private String userPasswordAuthentication;
+	
+	private String authorizationType = "Basic";
+	
 
 	@Override
 	public CustomerOrderMaintainConfirmationBundleMessageSyncV1 maintainBundle(CustomerOrderMaintainRequestBundleMessageSyncV1 customerOrderBundleMaintainRequestSyncV1)
@@ -22,15 +35,15 @@ public class CustomerOrderProcessingEndPoint implements CustomerOrderProcessingM
 		JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
 		
 		factory.setServiceClass(CustomerOrderProcessingManageCustomerOrderIn.class);
-		factory.setAddress("https://my331048.crm.ondemand.com/sap/bc/srt/scs/sap/customerorderprocessingmanagec");
+		factory.setAddress(MaintainBundleEndPoint);
 		CustomerOrderProcessingManageCustomerOrderIn port = (CustomerOrderProcessingManageCustomerOrderIn) factory.create();
 		
 		Client client = ClientProxy.getClient(port);
 		
 		HTTPConduit httpConduit = (HTTPConduit) client.getConduit();
-		httpConduit.getAuthorization().setUserName("_ZIVR_CCTR");
-		httpConduit.getAuthorization().setPassword("Welcome1");
-		httpConduit.getAuthorization().setAuthorizationType("Basic");
+		httpConduit.getAuthorization().setUserName(userAuthentication);
+		httpConduit.getAuthorization().setPassword(userPasswordAuthentication);
+		httpConduit.getAuthorization().setAuthorizationType(authorizationType);
 		
 		CustomerOrderMaintainConfirmationBundleMessageSyncV1 response = port.maintainBundle(customerOrderBundleMaintainRequestSyncV1);
 		
