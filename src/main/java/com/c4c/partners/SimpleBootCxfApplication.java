@@ -14,11 +14,11 @@ public class SimpleBootCxfApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SimpleBootCxfApplication.class, args);
 	}
-
-	@Bean
-	public ServletRegistrationBean dispatcherServlet() {
-		return new ServletRegistrationBean(new CXFServlet(), "/soap-api/*");
-	}
+//
+//	@Bean
+//	public ServletRegistrationBean dispatcherServlet() {
+//		return new ServletRegistrationBean(new CXFServlet(), "/soap-api/*");
+//	}
 
 	@Bean(name = Bus.DEFAULT_BUS_ID)
 	public SpringBus springBus() {

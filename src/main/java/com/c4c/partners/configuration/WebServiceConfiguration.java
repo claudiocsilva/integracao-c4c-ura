@@ -19,7 +19,7 @@ public class WebServiceConfiguration {
 
 	@Bean
 	public ServletRegistrationBean cxfServlet() {
-		return new ServletRegistrationBean(new CXFServlet(), "/soap-api/*");
+		return new ServletRegistrationBean(new CXFServlet(), "/c4c-soap-api/*");
 	}
 
 	@Bean(name = Bus.DEFAULT_BUS_ID)
