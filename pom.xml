@@ -59,45 +59,45 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>jaxws-maven-plugin</artifactId>
-				<version>2.4.1</version>
-				<configuration>
-					<wsdlUrls>
-						<wsdlUrl>src/main/resources/service-api-definition/c4c_wsdl_salesorder.wsdl</wsdlUrl>
-					</wsdlUrls>
-					<sourceDestDir>target/generated-sources/wsdlimport/C4C_SalesOrder</sourceDestDir>
-					<vmArgs>
-						<vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
-					</vmArgs>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>wsimport</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>add-source</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>add-source</goal>
-						</goals>
-						<configuration>
-							<sources>
-								<source>target/generated-sources/wsdlimport/C4C_SalesOrder</source>
-							</sources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.codehaus.mojo</groupId> -->
+<!-- 				<artifactId>jaxws-maven-plugin</artifactId> -->
+<!-- 				<version>2.4.1</version> -->
+<!-- 				<configuration> -->
+<!-- 					<wsdlUrls> -->
+<!-- 						<wsdlUrl>src/main/resources/service-api-definition/c4c_wsdl_salesorder.wsdl</wsdlUrl> -->
+<!-- 					</wsdlUrls> -->
+<!-- 					<sourceDestDir>target/generated-sources/wsdlimport/C4C_SalesOrder</sourceDestDir> -->
+<!-- 					<vmArgs> -->
+<!-- 						<vmArg>-Djavax.xml.accessExternalSchema=all</vmArg> -->
+<!-- 					</vmArgs> -->
+<!-- 				</configuration> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<goals> -->
+<!-- 							<goal>wsimport</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.codehaus.mojo</groupId> -->
+<!-- 				<artifactId>build-helper-maven-plugin</artifactId> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>add-source</id> -->
+<!-- 						<phase>generate-sources</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>add-source</goal> -->
+<!-- 						</goals> -->
+<!-- 						<configuration> -->
+<!-- 							<sources> -->
+<!-- 								<source>target/generated-sources/wsdlimport/C4C_SalesOrder</source> -->
+<!-- 							</sources> -->
+<!-- 						</configuration> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
 		</plugins>
 	</build>
 
