@@ -10,6 +10,7 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.c4c.partners.endpoint.CustomerOrderMockEndPoint;
 import com.c4c.partners.endpoint.CustomerOrderProcessingEndPoint;
 import com.sap.xi.a1s.global.CustomerOrderProcessingManageCustomerOrderIn;
 
@@ -28,12 +29,17 @@ public class WebServiceConfiguration {
 	}
 	
 	
+//	@Bean
+//	public CustomerOrderProcessingManageCustomerOrderIn CustomerService() {
+//		return new CustomerOrderProcessingEndPoint();
+//	}
+	
 	@Bean
-	public CustomerOrderProcessingManageCustomerOrderIn CustomerService() {
-		return new CustomerOrderProcessingEndPoint();
+	public CustomerOrderMockEndPoint CustomerService() {
+		return new CustomerOrderMockEndPoint();
 	}
 	
-
+	
 	@Bean
 	public Endpoint endpoint() {
 		EndpointImpl endpoint = new EndpointImpl(springBus(), CustomerService());

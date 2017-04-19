@@ -5,14 +5,12 @@ import org.apache.cxf.frontend.ClientProxy;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.cxf.transport.http.HTTPConduit;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
 
 import com.sap.xi.a1s.global.CustomerOrderMaintainConfirmationBundleMessageSyncV1;
 import com.sap.xi.a1s.global.CustomerOrderMaintainRequestBundleMessageSyncV1;
 import com.sap.xi.a1s.global.CustomerOrderProcessingManageCustomerOrderIn;
 import com.sap.xi.a1s.global.StandardFaultMessage;
 
-@Service
 public class CustomerOrderProcessingEndPoint implements CustomerOrderProcessingManageCustomerOrderIn {
 
 	
